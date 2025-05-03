@@ -637,31 +637,49 @@
 // console.log(mergeStoredArray(array1, array2));
 
 
-function longestCommonPrefix(sentence) {
-   let prefix = sentence[0];
-   let newPrefix = '';
+// function longestCommonPrefix(sentence) {
+//    let prefix = sentence[0];
+//    let newPrefix = '';
 
 
-   for(let i = 1; i<sentence.length; i++) {
-      let element = sentence[i];
+//    for(let i = 1; i<sentence.length; i++) {
+//       let element = sentence[i];
       
-      for(let j = 0; j<element.length; j++) {
-         if(prefix[j] == element[j]) {
-            newPrefix += element[j];
-            // console.log(newPrefix);
+
+//       for(let j = 0; j<element.length; j++) {
+//          if(prefix[j] == element[j]) {
+//             newPrefix += element[j];
+//          }else {
+//             break;
+//          }
+//       }
+//    }
+//    return newPrefix;
+// }
+
+
+// console.log(longestCommonPrefix(['hello', 'tet', 'hel']));
+
+
+
+
+function flatenArray(array) {
+   let newArr = [];
+   for(let i = 0; i<array.length; i++) {
+      if(typeof array[i] === 'object' && array[i] !== null && array[i].constructor === Array) {
+         let result = flatenArray(array[i]);
+         for(let j = 0; j<result.length; j++) {
+            newArr[newArr.length] = result[j];
          }
+      }else {
+         newArr[newArr.length] = array[i];
       }
    }
-   return newPrefix;
+   return newArr;
 }
 
 
-console.log(longestCommonPrefix(['hello', 'hetet', 'test']));
-
-
-
-
-
+console.log(flatenArray([[8],[7],[3,4]]));
 
 
 
