@@ -663,26 +663,23 @@
 
 
 
-function flatenArray(array) {
-   let newArr = [];
-   for(let i = 0; i<array.length; i++) {
-      if(typeof array[i] === 'object' && array[i] !== null && array[i].constructor === Array) {
-         let result = flatenArray(array[i]);
-         for(let j = 0; j<result.length; j++) {
-            newArr[newArr.length] = result[j];
-         }
-      }else {
-         newArr[newArr.length] = array[i];
-      }
-   }
-   return newArr;
-}
+// function flatenArray(array) {
+//    let newArr = [];
+//    for(let i = 0; i<array.length; i++) {
+//       if(typeof array[i] === 'object' && array[i] !== null && array[i].constructor === Array) {
+//          let result = flatenArray(array[i]);
+//          for(let j = 0; j<result.length; j++) {
+//             newArr[newArr.length] = result[j];
+//          }
+//       }else {
+//          newArr[newArr.length] = array[i];
+//       }
+//    }
+//    return newArr;
+// }
 
 
-console.log(flatenArray([[8],[7],[3,4]]));
-
-
-
+// console.log(flatenArray([[8],[7],[3,4]]));
 
 
 
@@ -691,34 +688,193 @@ console.log(flatenArray([[8],[7],[3,4]]));
 
 
 
+// function  rotateLeft(array, position ) {
+//     let rotatedArray = [];
+
+//     for(let i = 0; i<array.length; i++) {
+//        if(array[i] == position) {
+//           // let start = array[i];
+//           for(let j = i+1; j<array.length; j++) {
+//              rotatedArray[rotatedArray.length] = array[j];
+//           }
+//           for(let k = 0; k<=i; k++) {
+//              rotatedArray[rotatedArray.length] = array[k];
+//           }
+//        }
+//     }
+//     return rotatedArray;
+//  }
+ 
+// let test = rotateLeft([1,2,3,4,5,6,7,8,9], 5);
+// console.log(test);
+
+
+
+// function isAnagram(word1, word2) {
+//     let l1 = word1.length;
+//     let l2 = word2.length;
+//     let count = 0;
+
+//     if(l1 !== l2) {
+//         return 'they are not anagram';
+//     }
+
+//     let indexUse = {};
+
+//     for(let i = 0; i<l1; i++) {
+//         for(let j = 0; j<l2; j++) {
+//             if(word1[i] === word2[j] && !indexUse[j]) {
+//                 count ++;
+//                 indexUse[j] = true;
+//                 break;
+//             }
+//         }
+//     }
+    
+//     if(count === l2){
+//         return `${word1} et ${word2} are anagram.`;
+//     }else {
+//         return `${word1} et ${word2} are anagram.`;
+//     }
+// }
+
+// let test = isAnagram('silent', 'listen');
+// console.log(test);
+
+
+// function isAnagram(word1, word2) {
+    
+//     word1 = word1.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+//     word2 = word2.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+//     let l1 = word1.length;
+//     let l2 = word2.length;
+//     let count = 0;
+
+
+//     if (l1 !== l2) {
+//         return 'They are not anagrams';
+//     }
+
+    
+//     let marked = [];
+//     for(let i = 0; i<l2; i++) {
+//         marked[i] = false;
+//     } 
+
+//     for (let i = 0; i < l1; i++) {
+//         let found = false;
+//         for (let j = 0; j < l2; j++) {
+//             if (word1[i] === word2[j] && marked[j] === false) {
+//                 count++;
+//                 marked[j] = true;
+//                 found = true;
+//                 break
+//             }
+//         }
+//         if(!found) {
+//             return 'they are not anagram';
+//         }
+//     }
+
+//     if (count === l2) {
+//         return `${word1} and ${word2} are anagrams.`;
+//     } else {
+//         return `${word1} and ${word2} are not anagrams.`;
+//     }
+// }
+
+// let test = isAnagram('Astronomer', 'Moon starer');
+// console.log(test);
 
 
 
 
 
 
+// function findIntersection(arr1, arr2) {
+
+//     if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) {
+//         return 'Les entrées doivent être des tableaux.';
+//     }
+//     let l1 = arr1.length;
+//     let l2 = arr2.length;
+//     let intersection = [];
 
 
 
+//     if( l1 >= l2 ) {
+//         for(let i = 0; i<l1; i++) {
+//             for(let j = 0; j<l2; j++) {
+//                 if(arr1[i] == arr2[j]) {
+//                     let found = false;
+//                     for (let k = 0; k < intersection.length; k++) {
+//                         if (intersection[k] == arr1[i]) {
+//                             found = true;
+//                             break;
+//                         }
+//                     }
+//                     if (!found) {
+//                         intersection[intersection.length] = arr1[i];
+//                     }
+//                     break;
+//                 }
+//             }
+//         }
+//     }else {
+//         for(let i = 0; i<l2; i++) {
+//             for(let j = 0; j<l1; j++) {
+//                 if(arr1[i] == arr2[j]) {
+//                     let found = false;
+//                     for (let k = 0; k < intersection.length; k++) {
+//                         if (intersection[k] == arr2[i]) {
+//                             found = true;
+//                             break;
+//                         }
+//                     }
+//                     if (!found) {
+//                         intersection[intersection.length] = arr2[i];
+//                     }
+//                     break;
+//                 }
+//             }
+//         }
+//     }
+//     return intersection;
+// }
 
 
+//  Par while 
+// function findIntersection(arr1, arr2) {
+   
+//     if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) {
+//         return 'ne sont pas des tableaux';
+//     }
+    
+    
+//     let i = 0;
+//     let j = 0;
+//     let intersection = [];
+    
+    
+//     while (i < arr1.length && j < arr2.length) {
+//         if (arr1[i] === arr2[j]) {
+//             intersection[intersection.length] = arr1[i]; 
+//             i++;
+//             j++;
+//         } else if (arr1[i] < arr2[j]) {
+//             i++;
+//         } else {
+//             j++;
+//         }
+//     }
+    
+//     return intersection;
+// }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// let test = findIntersection([1,2,7], [2,7]);
+// console.log(test);
 
 
 
